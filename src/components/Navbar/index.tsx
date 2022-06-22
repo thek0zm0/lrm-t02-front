@@ -1,23 +1,25 @@
+import './styles.css'
+
 const Navbar = () =>  {
     return (
-        <nav className="bg-primary">
-        <div>
-          <a href="link">
+        <nav className="navbar navbar-expand-md bg-primary main-nav">
+        <div className="container-fluid">
+          <a href="link" className="nav-logo-text">
             <h4>Healthy Foods</h4>
           </a>
-          <div>
-            <ul>
+          <div className="collapse navbar-collapse">
+            <ul className="navbar-nav offset-md-2 main-menu">
               <li>
-                <a href="link">HOME</a>
+                <a href="link" className='active'>Home</a>
               </li>
               <li>
-                <a href="link">DIETA</a>
+                <a href="link">Informações Corporais</a>
               </li>
               <li>
-                <a href="link">REFEIÇÃO</a>
+                <a href="link">Dieta</a>
               </li>
               <li>
-                <a href="link">ALIMENTOS</a>
+                <a href="link">Alimentos</a>
               </li>
               <li>
                 <a href="link">ADMIN</a>
