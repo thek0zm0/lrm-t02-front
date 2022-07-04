@@ -2,15 +2,13 @@
     padding: 10px;
     font-size: 20px;
     text-align: center;
-    border: 1px solid red;
 }
 
 .home-card {
     display: flex;
     flex-direction: column-reverse;
     background-color: white;
-    border: 1px solid violet;
-    box-shadow: 0px 4px 20px rgb(0, 0, 0.25);
+    box-shadow: 0px 4px 20px rgb(0, 0, 0, 0.25);
     border-radius: 20px;
 }
 
@@ -18,7 +16,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid blueviolet;
     padding: 10px 10px 50px 10px;
 }
 
@@ -37,7 +34,6 @@
 
 .home-image-container {
     padding: 50px 15px;
-    border: 1px solid purple;
 }
 
 .home-image-container svg {
@@ -83,6 +79,7 @@
 @media (min-width: 992px) {
     .home-container {
         font-size: 55px;
+        padding: 40px;
     }
 
     .home-image-container {
@@ -94,12 +91,40 @@
     }
 
     .home-content-container h1 {
-        width: 800px;
+        width: 700px;
         margin-bottom: 26px;
     }
 
     .home-content-container p {
-        width: 800px;
+        width: 700px;
         margin-bottom: 47px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .home-card {
+        flex-direction: row;
+        justify-content: space-around;
+    
+    }
+
+    .home-content-container {
+        align-items: flex-start;
+        text-align: left;
+        align-content: space-between;
+        flex-flow: wrap;
+        padding: 70px 30px;
+        width: 48%;
+    }
+
+    .home-image-container {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .home-image-container svg {
+        width: 100%;
+        height: auto;
     }
 }
