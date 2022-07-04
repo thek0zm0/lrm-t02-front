@@ -1,0 +1,12 @@
+.food-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.food-info-container h3{
+    font-size: 13px;
+    color: #0c5826;
+    margin: 1px;
+    padding: 1px;
+    text-align: right;
+}
