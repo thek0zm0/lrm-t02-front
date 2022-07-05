@@ -1,5 +1,4 @@
 import FoodCard from "components/FoodCard";
-import Navbar from "components/Navbar";
 
 const Foods = () => {
     return (

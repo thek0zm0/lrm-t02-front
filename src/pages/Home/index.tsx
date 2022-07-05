@@ -12,9 +12,11 @@ const Home = () => {
                         <h1>Comece agora uma vida mais saudável!</h1>
                         <p>Conheça a importância da escolha de alimentos saudáveis na sua dieta.</p>
                     </div>
-                    <Link to="/foods">
-                        <ButtonIcon></ButtonIcon>
-                    </Link>
+                    <div>
+                        <Link to="/foods">
+                            <ButtonIcon></ButtonIcon>
+                        </Link>
+                    </div>
                 </div>
                 <div className="home-image-container">
                     <MainImage></MainImage>
