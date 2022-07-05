@@ -17,6 +17,6 @@
     padding: 15px 20px 30px 20px;
 }
 
-.card-bottom-container h6 {
-    font-size: 18px;
+.card-bottom-container h6, h3 {
+    font-size: 26px;
 }
