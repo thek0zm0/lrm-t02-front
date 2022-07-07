@@ -20,6 +20,7 @@
     width: 50px;
     background-color: rgba(32, 100, 36, 0.5);
     border-radius: 0px 10px 10px 0px;
+    color: white;
 }
 
 @media (min-width: 576px) {

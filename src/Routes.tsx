@@ -2,6 +2,7 @@ import Navbar from "components/Navbar";
 import Admin from "pages/Admin";
 import BodyInfo from "pages/BodyInfo";
 import Diet from "pages/Diet";
+import FoodDetails from "pages/FoodDetails";
 import Foods from "pages/Foods";
 import Home from "pages/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -14,8 +15,11 @@ const Routes = () => (
             <Route path="/" exact>
                 <Home></Home>
             </Route>
-            <Route path="/foods">
+            <Route path="/foods" exact>
                 <Foods></Foods>
+            </Route>
+            <Route path="/foods/:foodId">
+                <FoodDetails></FoodDetails>
             </Route>
             <Route path="/admin">
                 <Admin></Admin>

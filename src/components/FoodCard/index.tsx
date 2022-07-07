@@ -1,6 +1,5 @@
 import './styles.css'
 
-import FoodImg from 'assets/images/uva.png'
 import FoodInfo from 'components/FoodInfo';
 import { Food } from 'types/food';
 
@@ -15,7 +14,7 @@ const FoodCard = ( { food } : Props ) => {
                 <img src={food.imgUrl} alt={food.name}/>
             </div>
             <div className='card-bottom-container'>
-                <h6>{food.name}</h6>
+            <h4>{food.name}</h4>
                 <FoodInfo food={food}></FoodInfo>
             </div>
         </div>

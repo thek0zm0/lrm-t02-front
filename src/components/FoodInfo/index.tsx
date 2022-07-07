@@ -1,4 +1,5 @@
 import { Food } from 'types/food';
+import { formatValue } from 'util/formatters';
 import './styles.css'
 
 type Props = { 
@@ -23,16 +24,16 @@ const FoodInfo = ( { food } : Props) => {
         </div>
         <div className='food-info-container'>
             <h3>{food.foodGroup}</h3>
-            <h3>{food.quantity}</h3>
-            <h3>{food.calorie}</h3>
-            <h3>{food.protein}</h3>
-            <h3>{food.carbohydrate}</h3>
-            <h3>{food.fat}</h3>
-            <h3>{food.sodium}</h3>
-            <h3>{food.sugar}</h3>
-            <h3>{food.vitaminA}</h3>
-            <h3>{food.vitaminC}</h3>
-            <h3>{food.iron}</h3>
+            <h3>{formatValue(food.quantity)}</h3>
+            <h3>{formatValue(food.calorie)}</h3>
+            <h3>{formatValue(food.protein)}</h3>
+            <h3>{formatValue(food.carbohydrate)}</h3>
+            <h3>{formatValue(food.fat)}</h3>
+            <h3>{formatValue(food.sodium)}</h3>
+            <h3>{formatValue(food.sugar)}</h3>
+            <h3>{formatValue(food.vitaminA)}</h3>
+            <h3>{formatValue(food.vitaminC)}</h3>
+            <h3>{formatValue(food.iron)}</h3>
         </div>
         </div>
     );

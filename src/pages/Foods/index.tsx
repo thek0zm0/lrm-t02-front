@@ -1,4 +1,5 @@
 import FoodCard from "components/FoodCard";
+import { Link } from "react-router-dom";
 import { Food } from "types/food";
 
 const Foods = () => {
@@ -24,22 +25,39 @@ const Foods = () => {
         <div className="container my-4">
             <div className="row">
                 <div className="col-sm-6 col-lg-4 col-xl-3">
-                    <FoodCard food={food}></FoodCard>
+                    <Link to ="/foods/1">
+                        <FoodCard food={food}></FoodCard>
+                    </Link>
                 </div>
                 <div className="col-sm-6 col-lg-4 col-xl-3">
-                    <FoodCard food={food}></FoodCard>
+                    <Link to ="/foods/1">
+                        <FoodCard food={food}></FoodCard>
+                    </Link>
                 </div>
                 <div className="col-sm-6 col-lg-4 col-xl-3">
-                    <FoodCard food={food}></FoodCard>
+                    <Link to ="/foods/1">
+                        <FoodCard food={food}></FoodCard>
+                    </Link>
                 </div>
                 <div className="col-sm-6 col-lg-4 col-xl-3">
-                    <FoodCard food={food}></FoodCard>
+                    <Link to ="/foods/1">
+                        <FoodCard food={food}></FoodCard>
+                    </Link>
                 </div>
                 <div className="col-sm-6 col-lg-4 col-xl-3">
-                    <FoodCard food={food}></FoodCard>
+                    <Link to ="/foods/1">
+                        <FoodCard food={food}></FoodCard>
+                    </Link>
                 </div>
                 <div className="col-sm-6 col-lg-4 col-xl-3">
-                    <FoodCard food={food}></FoodCard>
+                    <Link to ="/foods/1">
+                        <FoodCard food={food}></FoodCard>
+                    </Link>
+                </div>
+                <div className="col-sm-6 col-lg-4 col-xl-3">
+                    <Link to ="/foods/1">
+                        <FoodCard food={food}></FoodCard>
+                    </Link>
                 </div>
             </div>
         </div>
