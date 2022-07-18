@@ -1,6 +1,8 @@
 import FoodCard from "components/FoodCard";
+import Pagination from "components/Pagination";
 import { Link } from "react-router-dom";
 import { Food } from "types/food";
+import './styles.css';
 
 const Foods = () => {
 
@@ -23,6 +25,12 @@ const Foods = () => {
 
     return (
         <div className="container my-4">
+            <div className="container my-4 foods-container">
+                <div className="row foods-title-container">
+                    <h1>Busca de Alimentos</h1>
+                </div>
+            </div>
+
             <div className="row">
                 <div className="col-sm-6 col-lg-4 col-xl-3">
                     <Link to ="/foods/1">
@@ -59,6 +67,10 @@ const Foods = () => {
                         <FoodCard food={food}></FoodCard>
                     </Link>
                 </div>
+            </div>
+
+            <div className="row">
+                <Pagination></Pagination>
             </div>
         </div>
     );
