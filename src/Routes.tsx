@@ -5,7 +5,7 @@ import Diet from "pages/Diet";
 import FoodDetails from "pages/FoodDetails";
 import Foods from "pages/Foods";
 import Home from "pages/Home";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 
 const Routes = () => (
@@ -21,6 +21,7 @@ const Routes = () => (
             <Route path="/foods/:foodId">
                 <FoodDetails></FoodDetails>
             </Route>
+            <Redirect from="/admin" to="/admin/foods" exact/>
             <Route path="/admin">
                 <Admin></Admin>
             </Route>
