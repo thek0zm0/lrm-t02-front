@@ -1,9 +1,28 @@
 import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
-import { Link } from 'react-router-dom';
-
+import { Link, useParams } from 'react-router-dom';
+import { Food } from 'types/food';
+import axios from 'axios';
 import './styles.css';
+import { BASE_URL } from 'util/Requests';
+import { useEffect, useState } from 'react';
+
+type UrlParams = {
+    foodId: string;
+}
 
 const FoodDetails = () => {
+
+    const { foodId } = useParams<UrlParams>();
+
+    const [food, setFood] = useState<Food>();
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/food/${foodId}`)
+        .then(response => {
+        setFood(response.data);
+    });
+    }, [foodId]);
+
     return (
         <div className="food-details-page-container">
             <div className="base-card food-details-card">
@@ -16,13 +35,16 @@ const FoodDetails = () => {
                 <div className="row">
                     <div className="col-xl-6">
                         <div className="img-container">
-                            <img src="https://img.freepik.com/fotos-gratis/bando-de-banana-isolado_88281-1027.jpg?w=360" alt="Nome do alimento" />
+                            <img src={food?.imgUrl} alt={food?.name} />
+                        </div>
+                        <div className="name-price-container">
+                            <h1>{food?.name}</h1>
                         </div>
                     </div>
                     <div className="col-xl-6">
                         <div className="details-container">
                             <h2>Detalhes</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, nihil? Necessitatibus natus quaerat cupiditate distinctio unde libero error vero praesentium sunt, ea laudantium fuga, sequi dolore consequuntur, repellat nam facilis?</p>
+                            <p>{food?.foodGroup}</p>
                         </div>
                     </div>
                 </div>
