@@ -1,18 +1,20 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const MyLoader = () => (
+const CardLoader = () => (
+  <div className="card-loader-container">
   <ContentLoader 
     speed={2}
-    width={400}
+    width={320}
     height={460}
-    viewBox="0 0 400 460"
+    viewBox="0 0 320 460"
     backgroundColor="#ecebeb"
     foregroundColor="#d6d2d2"
   >
-    <rect x="24" y="16" rx="0" ry="0" width="107" height="97" />
+    <rect x="0" y="0" rx="0" ry="0" width="300" height="300" />
   </ContentLoader>
+  </div>
 )
 
-export default MyLoader
+export default CardLoader
 
