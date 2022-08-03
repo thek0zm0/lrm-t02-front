@@ -21,7 +21,8 @@ const FoodDetails = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`${BASE_URL}/food/${foodId}`)
+        axios
+        .get(`${BASE_URL}/food/${foodId}`)
         .then(response => {
         setFood(response.data);
     }).finally(() => {
