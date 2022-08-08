@@ -1,12 +1,11 @@
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
 import FoodCard from "components/FoodCard";
 import Pagination from "components/Pagination";
-import { response } from "msw";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Food } from "types/food";
 import { SpringPage } from "types/vendor/spring";
-import { BASE_URL } from "util/Requests";
+import { requestBackend } from "util/Requests";
 import CardLoader from "./CardLoader";
 import './styles.css';
 
@@ -19,7 +18,6 @@ const Foods = () => {
         const params : AxiosRequestConfig = {
             method: "GET",
             url: `/food/all`,
-            baseURL: BASE_URL,
             params: {
                 page: 0,
                 size: 12
@@ -27,13 +25,12 @@ const Foods = () => {
         };
 
         setIsLoading(true);
-        axios(params)
+        requestBackend(params)
             .then(response => {
                 setPage(response.data);
             }).finally(() => {
                 setIsLoading(false);
             });
-
     }, []);
 
 

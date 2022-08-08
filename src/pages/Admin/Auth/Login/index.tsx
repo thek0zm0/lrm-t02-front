@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import ButtonIcon from 'components/ButtonIcon';
  
 import './styles.css';
-import { requestBackendLogin } from 'util/Requests';
+import { getAuthData, requestBackendLogin, saveAuthData } from 'util/Requests';
 import { useState } from 'react';
 
 type FormData = {
@@ -19,6 +19,9 @@ const Login = () => {
   const onSubmit = (formData : FormData) => {
     requestBackendLogin(formData)
     .then(response => {
+      saveAuthData(response.data);
+      const token = getAuthData().access_token;
+      console.log(token);
       setHasError(false);
       console.log(response);
     })
@@ -33,7 +36,7 @@ const Login = () => {
       <h1>LOGIN</h1>
       {hasError && 
       <div className='alert alert-danger'>
-        Login falhou...
+        Não foi possível realizar o login.
       </div>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
@@ -46,7 +49,7 @@ const Login = () => {
               }
             })}
             type="text"
-            className="form-control base-input"
+            className={`form-control base-input ${errors.username ? 'is-invalid' : ''}`}
             placeholder="Email"
             name="username"
           />
@@ -58,7 +61,7 @@ const Login = () => {
               required : 'Campo obrigatório'
             })}
             type="password"
-            className="form-control base-input "
+            className={`form-control base-input ${errors.password? 'is-invalid' : ''}`}
             placeholder="Password"
             name="password"
           />
