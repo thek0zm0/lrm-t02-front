@@ -6,11 +6,12 @@ import Diet from "pages/Diet";
 import FoodDetails from "pages/FoodDetails";
 import Foods from "pages/Foods";
 import Home from "pages/Home";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, Router } from "react-router-dom";
+import history from "util/history";
 
 
 const Routes = () => (
-    <BrowserRouter>
+    <Router history={history}>
     <Navbar></Navbar>
         <Switch>
             <Route path="/" exact>
@@ -37,7 +38,7 @@ const Routes = () => (
                 <Diet></Diet>
             </Route>
         </Switch>
-    </BrowserRouter>
+    </Router>
 );
 
 export default Routes;
