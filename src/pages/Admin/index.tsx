@@ -10,16 +10,16 @@ const Admin = () => {
             <Navbar></Navbar>
             <div className="admin-content">
                 <Switch>
-                    <PrivateRoute path="/admin/foods">
+                    <PrivateRoute path="/admin/foods" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
                         <h1>Alimentos CRUD</h1>
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/diets">
+                    <PrivateRoute path="/admin/diets" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
                         <h1>Dietas CRUD</h1>
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/meals">
+                    <PrivateRoute path="/admin/meals" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
                         <h1>Refeições CRUD</h1>
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/users">
+                    <PrivateRoute path="/admin/users" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
                         <Users></Users>
                     </PrivateRoute>
                 </Switch>
