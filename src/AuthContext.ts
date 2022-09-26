@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { TokenData } from "util/Requests";
+import { TokenData } from "util/auth";
 
 // Estado global da situação de login
 export type AuthContextData = {
