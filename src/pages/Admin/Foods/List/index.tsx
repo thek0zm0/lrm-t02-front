@@ -1,4 +1,6 @@
-import FoodCrudCard from "components/FoodCrudCard";
+import FoodCrudCard from "pages/Admin/Foods/FoodCrudCard";
+import { Link } from "react-router-dom";
+import './styles.css';
 
 const List = () => {
 
@@ -20,13 +22,25 @@ const List = () => {
     }
 
     return (
-        <div>
-            <button className="btn btn-primary text-white">Adicionar</button>
-            <div>Barra de busca</div>
-            <FoodCrudCard food={food}></FoodCrudCard>
-            <FoodCrudCard food={food}></FoodCrudCard>
-            <FoodCrudCard food={food}></FoodCrudCard>
-        </div>
+        <>
+            <div className="food-crud-bar-container">
+                <Link to="/admin/foods/create">
+                    <button className="btn btn-primary text-white btn-crud-add">Adicionar</button>
+                </Link>
+            <div className="base-card food-filter-container">Barra de busca</div>
+            </div>
+            <div className="row">
+                <div className="col-sm-6 col-md-12">
+                    <FoodCrudCard food={food}></FoodCrudCard>
+                </div>
+                <div className="col-sm-6 col-md-12">
+                    <FoodCrudCard food={food}></FoodCrudCard>
+                </div>
+                <div className="col-sm-6 col-md-12">
+                    <FoodCrudCard food={food}></FoodCrudCard>
+                </div>
+            </div>
+        </>
     )
 }
 

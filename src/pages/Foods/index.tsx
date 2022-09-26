@@ -49,7 +49,7 @@ const Foods = () => {
                     page?.content.map( food => {
                     return (
                         <div className="col-sm-6 col-lg-4 col-xl-3" key={food.id}>
-                            <Link to ="/foods/1">
+                            <Link to ="/foods/1"> 
                                 <FoodCard food={food}></FoodCard>
                             </Link>
                         </div>
