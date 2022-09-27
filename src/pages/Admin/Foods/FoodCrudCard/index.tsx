@@ -13,7 +13,7 @@ const FoodCrudCard = ( { food } : Props ) => {
             <div className='food-crud-card-top-container'>
                 <img src={food.imgUrl} alt={food.name}/>
             </div>
-            <div>
+            <div className='food-crud-card-details'>
                 <div className='food-crud-card-bottom-container'>
                     <h4>{food.name}</h4>
                 </div>
