@@ -1,6 +1,5 @@
 import './styles.css'
 
-import FoodInfo from 'components/FoodInfo';
 import { Food } from 'types/food';
 import ProcessTypeBadge from '../ProcessTypeBadge';
 
@@ -17,12 +16,14 @@ const FoodCrudCard = ( { food } : Props ) => {
             <div>
                 <div className='food-crud-card-bottom-container'>
                     <h4>{food.name}</h4>
-                    <FoodInfo food={food}></FoodInfo>
                 </div>
                 <div className="food-crud-process-container">
                     <ProcessTypeBadge name={food.foodGroup}></ProcessTypeBadge>
-                    <ProcessTypeBadge name={food.foodGroup}></ProcessTypeBadge>
                 </div>
+            </div>
+            <div className="food-crud-card-buttons-container">
+                <button className="btn-outline-danger food-crud-card-button food-crud-card-button-delete">Delete</button>
+                <button className="btn-outline-secondary food-crud-card-button">Edit</button>
             </div>
         </div>
     );

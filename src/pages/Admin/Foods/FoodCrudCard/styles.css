@@ -1,5 +1,6 @@
 .food-crud-card {
     margin-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .food-crud-card-top-container {
@@ -23,7 +24,26 @@
     font-size: 26px;
 }
 
-.food-crud-process-container{
+.food-crud-process-container {
     padding: 0 20px;
     display: flex;
+    justify-content: center;
+}
+
+.food-crud-card-button {
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+.food-crud-card-buttons-container {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-crud-card-button-delete {
+    margin-right: 15px;
 }
