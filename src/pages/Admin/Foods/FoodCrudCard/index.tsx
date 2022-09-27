@@ -9,6 +9,7 @@ type Props = {
 
 const FoodCrudCard = ( { food } : Props ) => {
     return (
+        <div className="food-crud-container">
         <div className='base-card food-crud-card'>
             <div className='food-crud-card-top-container'>
                 <img src={food.imgUrl} alt={food.name}/>
@@ -25,6 +26,7 @@ const FoodCrudCard = ( { food } : Props ) => {
                 <button className="btn-outline-danger food-crud-card-button food-crud-card-button-delete">Delete</button>
                 <button className="btn-outline-secondary food-crud-card-button">Edit</button>
             </div>
+        </div>
         </div>
     );
 }
