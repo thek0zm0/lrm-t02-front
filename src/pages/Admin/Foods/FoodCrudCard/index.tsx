@@ -2,6 +2,7 @@ import './styles.css'
 
 import { Food } from 'types/food';
 import ProcessTypeBadge from '../ProcessTypeBadge';
+import { Link } from 'react-router-dom';
 
 type Props = { 
     food: Food;
@@ -24,7 +25,9 @@ const FoodCrudCard = ( { food } : Props ) => {
             </div>
             <div className="food-crud-card-buttons-container">
                 <button className="btn-outline-danger food-crud-card-button food-crud-card-button-delete">Delete</button>
-                <button className="btn-outline-secondary food-crud-card-button">Edit</button>
+                <Link to={`/admin/foods/${food.id}`}>
+                    <button className="btn-outline-secondary food-crud-card-button">Edit</button>
+                </Link>
             </div>
         </div>
         </div>

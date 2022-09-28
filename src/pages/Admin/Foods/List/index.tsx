@@ -1,25 +1,31 @@
+import { AxiosRequestConfig } from "axios";
 import FoodCrudCard from "pages/Admin/Foods/FoodCrudCard";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Food } from "types/food";
+import { SpringPage } from "types/vendor/spring";
+import { requestBackend } from "util/Requests";
 import './styles.css';
 
 const List = () => {
 
-    const food = {
-            "id": 1,
-            "name": "Banana",
-            "foodGroup": "INNATURA",
-            "imgUrl": "https://img.freepik.com/fotos-gratis/bando-de-banana-isolado_88281-1027.jpg?w=360",
-            "quantity": 100,
-            "calorie": 98.3,
-            "protein": 1.3,
-            "carbohydrate": 26.0,
-            "fat": 0.0,
-            "sodium": 0.0,
-            "sugar": 0.0,
-            "vitaminA": 0.0,
-            "vitaminC": 21.6,
-            "iron": 0.4
-    }
+    const [page, setPage] = useState<SpringPage<Food>>();
+
+    useEffect(() => {
+        const params : AxiosRequestConfig = {
+            method: "GET",
+            url: `/food/all`,
+            params: {
+                page: 0,
+                size: 12
+            }
+        };
+
+        requestBackend(params)
+            .then(response => {
+                setPage(response.data);
+            });
+    }, []);
 
     return (
         <>
@@ -30,15 +36,11 @@ const List = () => {
             <div className="base-card food-filter-container">Barra de busca</div>
             </div>
             <div className="row">
-                <div className="col-sm-6 col-md-12">
-                    <FoodCrudCard food={food}></FoodCrudCard>
-                </div>
-                <div className="col-sm-6 col-md-12">
-                    <FoodCrudCard food={food}></FoodCrudCard>
-                </div>
-                <div className="col-sm-6 col-md-12">
-                    <FoodCrudCard food={food}></FoodCrudCard>
-                </div>
+                {page?.content.map(food => (
+                    <div key={food.id} className="col-sm-6 col-md-12">
+                        <FoodCrudCard food={food}></FoodCrudCard>
+                    </div>
+                ))}
             </div>
         </>
     )
