@@ -8,9 +8,10 @@ import { requestBackend } from 'util/Requests';
 
 type Props = { 
     food: Food;
+    onDelete: Function;
 }
 
-const FoodCrudCard = ( { food } : Props ) => {
+const FoodCrudCard = ( { food, onDelete } : Props ) => {
 
     const handleDelete = (foodId: number) => {
         if (!window.confirm("Excluir?")) {
@@ -24,7 +25,7 @@ const FoodCrudCard = ( { food } : Props ) => {
         };
 
         requestBackend(params).then(() => {
-            console.log("deletado " + foodId)
+            onDelete();
         })
     }
 

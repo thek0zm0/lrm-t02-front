@@ -12,6 +12,10 @@ const List = () => {
     const [page, setPage] = useState<SpringPage<Food>>();
 
     useEffect(() => {
+        getFoods();
+    }, []);
+
+    const getFoods = () => {
         const params : AxiosRequestConfig = {
             method: "GET",
             url: `/food/all`,
@@ -25,7 +29,7 @@ const List = () => {
             .then(response => {
                 setPage(response.data);
             });
-    }, []);
+    }
 
     return (
         <>
@@ -38,7 +42,7 @@ const List = () => {
             <div className="row">
                 {page?.content.map(food => (
                     <div key={food.id} className="col-sm-6 col-md-12">
-                        <FoodCrudCard food={food}></FoodCrudCard>
+                        <FoodCrudCard food={food} onDelete={() => getFoods()}></FoodCrudCard>
                     </div>
                 ))}
             </div>
