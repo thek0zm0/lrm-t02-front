@@ -10,7 +10,7 @@ const Foods = () => {
             <Route path="/admin/foods" exact>
                 <List></List>
             </Route>
-            <Route path="/admin/foods/:productId">
+            <Route path="/admin/foods/:foodId">
                 <Form></Form>
             </Route>
         </Switch>

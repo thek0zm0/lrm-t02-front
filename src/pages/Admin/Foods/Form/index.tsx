@@ -1,21 +1,52 @@
 import { AxiosRequestConfig } from 'axios';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Food } from 'types/food';
 import { requestBackend } from 'util/Requests';
 import './styles.css';
 
+type UrlParams = {
+    foodId: string;
+}
+
 const Form = () => {
+
+    const { foodId } = useParams<UrlParams>();
+
+    const isEditing = foodId !== 'create';
 
     const history = useHistory();
 
-    const { register, handleSubmit, formState: { errors } } = useForm<Food>();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm<Food>();
+
+    useEffect(() => {
+        if (isEditing) {
+            requestBackend({ url: `/food/${foodId}`})
+            .then((response) => {
+                const food = response.data as Food;
+                setValue('name', food.name);
+                setValue('foodGroup', food.foodGroup);
+                setValue('quantity', food.quantity);
+                setValue('calorie', food.calorie);
+                setValue('protein', food.protein);
+                setValue('carbohydrate', food.carbohydrate);
+                setValue('fat', food.fat);
+                setValue('sodium', food.sodium);
+                setValue('sugar', food.sugar);
+                setValue('vitaminA', food.vitaminA);
+                setValue('vitaminC', food.vitaminC);
+                setValue('iron', food.iron);
+                setValue('imgUrl', food.imgUrl);
+            });
+        }
+    }, [isEditing, foodId, setValue]);
 
     const onSubmit = (formData: Food) => {
 
         const params: AxiosRequestConfig = {
-            method: "POST",
-            url: `/food/`,
+            method: isEditing ? "PUT" : "POST",
+            url: isEditing ? `/food/${foodId}` : `/food/`,
             data: formData,
             withCredentials: true
         };
