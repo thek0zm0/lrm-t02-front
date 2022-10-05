@@ -3,12 +3,31 @@ import './styles.css'
 import { Food } from 'types/food';
 import ProcessTypeBadge from '../ProcessTypeBadge';
 import { Link } from 'react-router-dom';
+import { AxiosRequestConfig } from 'axios';
+import { requestBackend } from 'util/Requests';
 
 type Props = { 
     food: Food;
 }
 
 const FoodCrudCard = ( { food } : Props ) => {
+
+    const handleDelete = (foodId: number) => {
+        if (!window.confirm("Excluir?")) {
+            return;
+        }
+
+        const params : AxiosRequestConfig = {
+            method: "DELETE",
+            url: `/food/${foodId}`,
+            withCredentials: true
+        };
+
+        requestBackend(params).then(() => {
+            console.log("deletado " + foodId)
+        })
+    }
+
     return (
         <div className="food-crud-container">
         <div className='base-card food-crud-card'>
@@ -24,7 +43,7 @@ const FoodCrudCard = ( { food } : Props ) => {
                 </div>
             </div>
             <div className="food-crud-card-buttons-container">
-                <button className="btn-outline-danger food-crud-card-button food-crud-card-button-delete">Delete</button>
+                <button className="btn-outline-danger food-crud-card-button food-crud-card-button-delete" onClick={() => handleDelete(food.id)}>Delete</button>
                 <Link to={`/admin/foods/${food.id}`}>
                     <button className="btn-outline-secondary food-crud-card-button">Edit</button>
                 </Link>
