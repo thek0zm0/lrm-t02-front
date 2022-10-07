@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import CurrencyInput from 'react-currency-input-field';
+import { Controller, useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import { Food } from 'types/food';
 import { requestBackend } from 'util/Requests';
@@ -18,7 +19,7 @@ const Form = () => {
 
     const history = useHistory();
 
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm<Food>();
+    const { register, handleSubmit, formState: { errors }, setValue, control } = useForm<Food>();
 
     useEffect(() => {
         if (isEditing) {
@@ -44,10 +45,22 @@ const Form = () => {
 
     const onSubmit = (formData: Food) => {
 
+        const data = {...formData, 
+            quantity: String(formData.quantity).replace(',', '.'),
+            calorie: String(formData.calorie).replace(',', '.'),
+            protein: String(formData.protein).replace(',', '.'),
+            carbohydrate: String(formData.carbohydrate).replace(',', '.'),
+            fat: String(formData.fat).replace(',', '.'),
+            sodium: String(formData.sodium).replace(',', '.'),
+            sugar: String(formData.sugar).replace(',', '.'),
+            vitaminAon: String(formData.vitaminA).replace(',', '.'),
+            vitaminC: String(formData.vitaminC).replace(',', '.'),
+            iron: String(formData.iron).replace(',', '.')}
+
         const params: AxiosRequestConfig = {
             method: isEditing ? "PUT" : "POST",
             url: isEditing ? `/food/${foodId}` : `/food/`,
-            data: formData,
+            data,
             withCredentials: true
         };
 
@@ -93,128 +106,168 @@ const Form = () => {
                                 />
                                 <div className='invalid-feedback d-block'>{errors.foodGroup?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("quantity", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.quantity ? 'is-invalid' : ''}`}
-                                    placeholder="Quantidade"
+                                <Controller
                                     name="quantity"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='quantidade'
+                                            className={`form-control base-input ${errors.quantity ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            decimalScale={0}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.quantity?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("calorie", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.calorie ? 'is-invalid' : ''}`}
-                                    placeholder="Calorias"
+                                <Controller
                                     name="calorie"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='caloria'
+                                            className={`form-control base-input ${errors.calorie ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.calorie?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("protein", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.protein ? 'is-invalid' : ''}`}
-                                    placeholder="Proteínas"
+                                <Controller
                                     name="protein"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='proteína'
+                                            className={`form-control base-input ${errors.protein ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.protein?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("carbohydrate", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.carbohydrate ? 'is-invalid' : ''}`}
-                                    placeholder="Carboidratos"
+                                <Controller
                                     name="carbohydrate"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='carboidratos'
+                                            className={`form-control base-input ${errors.carbohydrate ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.carbohydrate?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("fat", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.fat ? 'is-invalid' : ''}`}
-                                    placeholder="Gorduras"
+                                <Controller
                                     name="fat"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='gorduras'
+                                            className={`form-control base-input ${errors.fat ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.fat?.message}</div>
                             </div>
-                        </div>
-                        <div className='col-lg-6'>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("sodium", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.sodium ? 'is-invalid' : ''}`}
-                                    placeholder="Sódio"
+                                <Controller
                                     name="sodium"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='sódio'
+                                            className={`form-control base-input ${errors.sodium ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.sodium?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("sugar", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.sugar ? 'is-invalid' : ''}`}
-                                    placeholder="Açúcar"
+                                <Controller
                                     name="sugar"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='açúcar'
+                                            className={`form-control base-input ${errors.sugar ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.sugar?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("vitaminA", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.vitaminA ? 'is-invalid' : ''}`}
-                                    placeholder="Vitamina A"
+                                <Controller
                                     name="vitaminA"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='vitamina A'
+                                            className={`form-control base-input ${errors.vitaminA ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.vitaminA?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("vitaminC", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.vitaminC ? 'is-invalid' : ''}`}
-                                    placeholder="Vitamina C"
+                                <Controller
                                     name="vitaminC"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='vitamina C'
+                                            className={`form-control base-input ${errors.vitaminC ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.vitaminC?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
-                                <input 
-                                    {...register("iron", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.iron ? 'is-invalid' : ''}`}
-                                    placeholder="Ferro"
+                                <Controller
                                     name="iron"
-                                />
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder='Ferro'
+                                            className={`form-control base-input ${errors.iron ? 'is-invalid' : ''}`} 
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}/>
+                                    )}/>
                                 <div className='invalid-feedback d-block'>{errors.iron?.message}</div>
                             </div>
+
                             <div className='margin-botton-30'>
                                 <input 
                                     {...register("imgUrl", {
