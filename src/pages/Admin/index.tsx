@@ -1,5 +1,6 @@
 import PrivateRoute from "components/PrivateRoute";
 import { Switch } from "react-router-dom";
+import Diets from "./Diets";
 import Foods from "./Foods";
 import Meals from "./Meals";
 import Navbar from "./Navbar";
@@ -16,7 +17,7 @@ const Admin = () => {
                         <Foods></Foods>
                     </PrivateRoute>
                     <PrivateRoute path="/admin/diets" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
-                        <h1>Dietas CRUD</h1>
+                        <Diets></Diets>
                     </PrivateRoute>
                     <PrivateRoute path="/admin/meals" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
                         <Meals></Meals>
