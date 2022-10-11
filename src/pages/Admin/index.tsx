@@ -2,6 +2,7 @@ import PrivateRoute from "components/PrivateRoute";
 import { Switch } from "react-router-dom";
 import Diets from "./Diets";
 import Foods from "./Foods";
+import Informations from "./Informations";
 import Meals from "./Meals";
 import Navbar from "./Navbar";
 import './styles.css';
@@ -22,8 +23,8 @@ const Admin = () => {
                     <PrivateRoute path="/admin/meals" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
                         <Meals></Meals>
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/information" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
-                        <h1>Informações Corporais CRUD</h1>
+                    <PrivateRoute path="/admin/informations" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
+                        <Informations></Informations>
                     </PrivateRoute>
                     <PrivateRoute path="/admin/users" roles={['ROLE_ADMIN', 'ROLE_NUTRITIONIST']}>
                         <Users></Users>

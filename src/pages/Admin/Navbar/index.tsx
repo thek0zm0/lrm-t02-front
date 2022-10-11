@@ -21,6 +21,11 @@ const navbar = () => {
                         <p>Refeições</p>
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink to="/admin/informations" className='admin-nav-item'>
+                        <p>Informações</p>
+                    </NavLink>
+                </li>
                 {
                     hasAnyRoles(['ROLE_ADMIN'])
                     && 
