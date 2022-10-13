@@ -77,7 +77,7 @@ const Form = () => {
     return (
         <div className="meal-crud-container">
             <div className="base-card meal-crud-form-card">
-                <h1 className="meal-crud-form-title">Informações do Alimento</h1>
+                <h1 className="meal-crud-form-title">Informações da Refeição</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row meal-crud-inputs-container">
                         <div className='col-lg-6 meal-crud-inputs-left-container'>
@@ -88,7 +88,7 @@ const Form = () => {
                                     })}
                                     type="text"
                                     className={`form-control base-input ${errors.name ? 'is-invalid' : ''}`}
-                                    placeholder="Nome do Alimento"
+                                    placeholder="Nome da Refeição"
                                     name="name"
                                 />
                                 <div className='invalid-feedback d-block'>{errors.name?.message}</div>

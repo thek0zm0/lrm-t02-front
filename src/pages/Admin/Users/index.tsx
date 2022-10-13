@@ -1,10 +1,8 @@
-import { AxiosRequestConfig } from 'axios';
-import { useEffect, useState } from 'react';
-import { User } from 'types/user';
-import { SpringPage } from 'types/vendor/spring';
-import { requestBackend } from 'util/Requests';
+import { Route, Switch } from 'react-router-dom';
+import List from './List';
  
 const Users = () => {
+  /*
   const [page, setPage] = useState<SpringPage<User>>();
  
   useEffect(() => {
@@ -25,10 +23,23 @@ const Users = () => {
   return (
     <div>
       {page?.content.map((item) => (
+        <>
+        <p key={item.id}>{item.name}</p>
         <p key={item.id}>{item.email}</p>
+        <p key={item.id}>{item.cpf}</p>
+        </>
       ))}
     </div>
-  );
+  );*/
+  return (
+    <>
+    <Switch>
+        <Route path="/admin/users" exact>
+            <List></List>
+        </Route>
+    </Switch>
+    </>
+)
 };
  
 export default Users;
