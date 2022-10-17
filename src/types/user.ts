@@ -6,5 +6,7 @@ export type User = {
     email: string,
     cpf: string,
     phone: string,
+    birthDate: string,
+    password: string,
     roles: Role[]
 }
