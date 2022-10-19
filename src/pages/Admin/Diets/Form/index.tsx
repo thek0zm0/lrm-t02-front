@@ -7,6 +7,7 @@ import { Diet } from "types/diet";
 import { Meal } from "types/meal";
 import { User } from "types/user";
 import { requestBackend } from "util/Requests";
+import './styles.css';
 
 type UrlParams = {
     dietId: string;

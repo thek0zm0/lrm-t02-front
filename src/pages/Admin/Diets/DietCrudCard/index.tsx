@@ -4,6 +4,7 @@ import { Diet } from "types/diet";
 import { requestBackend } from "util/Requests";
 import MealBadge from "../MealBadge";
 import UserBadge from "../UserBadge";
+import './styles.css';
 
 type Props = { 
     diet: Diet;
@@ -35,19 +36,19 @@ const DietCrudCard = ( { diet, onDelete } : Props ) => {
             </div>
             <div className='diet-crud-card-details'>
                 <div className='diet-crud-card-bottom-container'>
-                    <h4>{diet.name}</h4>
+                    <h3>{diet.name}</h3>
                     <h4>{diet.description}</h4>
-                    <h4>{diet.startDate}</h4>
-                    <h4>{diet.endDate}</h4>
+                    <h5>Início: {new Date(diet.startDate).toUTCString()}</h5>
+                    <h5>Fim: {new Date(diet.endDate).toUTCString()}</h5>
                 </div>
                 <div className="diet-crud-process-container">
-                    <h4>Refeições</h4>
+                    <h4>Refeições: </h4>
                     {diet.meals.map((meal) => (
                         <MealBadge name={meal.name} key={meal.id} />
                     ))}
                 </div>
                 <div className="diet-crud-process-container">
-                    <h4>Usuários</h4>
+                    <h4>Usuários: </h4>
                     {diet.users.map((user) => (
                         <UserBadge email={user.email} key={user.id} />
                     ))}

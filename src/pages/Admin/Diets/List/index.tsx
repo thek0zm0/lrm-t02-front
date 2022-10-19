@@ -5,6 +5,7 @@ import { Diet } from "types/diet";
 import { SpringPage } from "types/vendor/spring";
 import { requestBackend } from "util/Requests";
 import DietCrudCard from "../DietCrudCard";
+import './styles.css';
 
 const List = () => {
     const [page, setPage] = useState<SpringPage<Diet>>();
@@ -36,7 +37,6 @@ const List = () => {
                 <Link to="/admin/diets/create">
                     <button className="btn btn-primary text-white btn-crud-add">Adicionar</button>
                 </Link>
-            <div className="base-card diet-filter-container">Barra de busca</div>
             </div>
             <div className="row">
                 {page?.content.map(diet => (

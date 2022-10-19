@@ -1,0 +1,50 @@
+.diet-crud-form-card {
+    padding: 20px;
+}
+
+.diet-crud-form-title {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 28px;
+}
+
+.margin-botton-30 {
+    margin-bottom: 30px;
+}
+
+.diet-crud-inputs-left-container {
+    margin-bottom: 30px;
+}
+
+.diet-crud-inputs-container {
+    margin-bottom: 30px;
+}
+
+.diet-crud-buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.diet-crud-button {
+    height: 50px;
+    width: 120px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+@media (min-width: 576px) {
+    .diet-crud-buttons-container {
+        justify-content: flex-end;
+    }
+
+    .diet-crud-button {
+        margin-left: 30px;
+        width: 270px;
+    }
+}
+
+@media (min-width: 992px) {
+    .diet-crud-inputs-left-container {
+        margin-bottom: 0;
+    }
+}
