@@ -6,6 +6,7 @@ import Select from 'react-select';
 import { Food } from "types/food";
 import { Meal } from "types/meal";
 import { requestBackend } from "util/Requests";
+import './styles.css';
 
 type UrlParams = {
     mealId: string;

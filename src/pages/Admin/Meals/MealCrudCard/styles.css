@@ -1,0 +1,94 @@
+.meal-crud-container {
+    max-width: 1200px;
+}
+
+.meal-crud-card {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.meal-crud-card-top-container {
+    padding: 16px 0;
+    border-bottom: 1px solid #e1e1e2;
+    text-align: center;
+}
+
+.meal-crud-card-top-container img{
+    width: 158px;
+    height: 158px;
+}
+
+.meal-crud-card-bottom-container {
+    align-items: center;
+    text-align: center;
+    padding: 15px 20px 30px 20px;
+}
+
+.meal-crud-card-bottom-container h6, h3 {
+    font-size: 26px;
+}
+
+.meal-crud-process-container {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.meal-crud-card-button {
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+.meal-crud-card-buttons-container {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.meal-crud-card-button-delete {
+    margin-right: 15px;
+}
+
+@media(min-width: 768px) {
+    .meal-crud-card {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+    }
+
+    .meal-crud-card-buttons-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .meal-crud-card-button {
+        width: 150px;
+    }
+
+    .meal-crud-card-button-delete {
+        margin-right: 0;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .meal-crud-card-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .meal-crud-card-top-container {
+        border-right: 1px solid #e1e1e2;
+        border-bottom: 0;
+    }
+}
+
+@media(min-width: 992px) {
+    .meal-crud-card-button {
+        width: 250px;
+    }
+}

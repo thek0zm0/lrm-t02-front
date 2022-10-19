@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Meal } from "types/meal";
 import { requestBackend } from "util/Requests";
 import FoodBadge from "../FoodBadge";
+import './styles.css';
 
 type Props = { 
     meal: Meal;
@@ -34,8 +35,8 @@ const MealCrudCard = ( { meal, onDelete } : Props ) => {
             </div>
             <div className='meal-crud-card-details'>
                 <div className='meal-crud-card-bottom-container'>
-                    <h4>{meal.name}</h4>
-                    <h4>{meal.timeHour}</h4>
+                    <h3>{meal.name}</h3>
+                    <h5>Horário: {meal.timeHour}</h5>
                 </div>
                 <div className="meal-crud-process-container">
                     {meal.foods.map((food) => (

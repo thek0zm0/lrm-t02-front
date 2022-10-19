@@ -1,0 +1,12 @@
+.meal-badge-container {
+    background-color: grey;
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: -0.015em;
+    height: 33px;
+    margin-right: 10px;
+    margin-bottom: 13px;
+}
