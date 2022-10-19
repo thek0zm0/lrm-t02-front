@@ -37,7 +37,6 @@ const List = () => {
                 <Link to="/admin/foods/create">
                     <button className="btn btn-primary text-white btn-crud-add">Adicionar</button>
                 </Link>
-            <div className="base-card food-filter-container">Barra de busca</div>
             </div>
             <div className="row">
                 {page?.content.map(food => (

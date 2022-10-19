@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import { Link } from "react-router-dom";
 import { User } from "types/user";
 import { requestBackend } from "util/Requests";
-
+import './styles.css';
 
 type Props = { 
     user: User;

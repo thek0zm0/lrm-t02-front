@@ -5,8 +5,7 @@ import { User } from "types/user";
 import { SpringPage } from "types/vendor/spring";
 import { requestBackend } from "util/Requests";
 import UserCrudCard from "../UserCrudCard";
-
-
+import './styles.css';
 
 const List = () => {
 
@@ -38,7 +37,6 @@ const List = () => {
                 <Link to="/admin/users/create">
                     <button className="btn btn-primary text-white btn-crud-add">Adicionar</button>
                 </Link>
-                <div className="base-card user-filter-container">Barra de busca</div>
             </div>
             <div className="row">
                 {page?.content.map(user => (

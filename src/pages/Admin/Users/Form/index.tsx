@@ -6,7 +6,7 @@ import { Role } from "types/role";
 import { User } from "types/user";
 import { requestBackend } from "util/Requests";
 import Select from 'react-select';
-
+import './styles.css';
 
 type UrlParams = {
     userId: string;
