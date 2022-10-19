@@ -5,9 +5,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { Information } from "types/information";
 import { requestBackend } from 'util/Requests';
 import CurrencyInput from 'react-currency-input-field';
-
-
-
+import './styles.css';
 
 type UrlParams = {
     informationId: string;
@@ -65,7 +63,7 @@ const Form = () => {
     return (
         <div className="information-crud-container">
             <div className="base-card information-crud-form-card">
-                <h1 className="information-crud-form-title">Informações do Alimento</h1>
+                <h1 className="information-crud-form-title">Informações Corporais do Usuário</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row information-crud-inputs-container">
                         <div className='col-lg-6 information-crud-inputs-left-container'>

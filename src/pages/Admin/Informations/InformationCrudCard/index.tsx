@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import { Link } from "react-router-dom";
 import { Information } from "types/information";
 import { requestBackend } from "util/Requests";
-
+import './styles.css';
 
 type Props = { 
     information: Information;

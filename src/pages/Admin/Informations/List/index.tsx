@@ -5,7 +5,7 @@ import { Information } from "types/information";
 import { SpringPage } from "types/vendor/spring";
 import { requestBackend } from "util/Requests";
 import InformationCrudCard from "../InformationCrudCard";
-
+import './styles.css';
 
 const List = () => {
 
@@ -38,7 +38,6 @@ const List = () => {
                 <Link to="/admin/informations/create">
                     <button className="btn btn-primary text-white btn-crud-add">Adicionar</button>
                 </Link>
-            <div className="base-card information-filter-container">Barra de busca</div>
             </div>
             <div className="row">
                 {page?.content.map(information => (
