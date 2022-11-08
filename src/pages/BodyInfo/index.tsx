@@ -13,11 +13,7 @@ const BodyInfo = () => {
         const params : AxiosRequestConfig = {
             method: "GET",
             url: `/information/`,
-            withCredentials: true,
-            params: {
-                page: 0,
-                size: 12
-            }
+            withCredentials: true
         };
 
         requestBackend(params)
@@ -32,10 +28,15 @@ const BodyInfo = () => {
             {authContextData.authenticated ? 
             <>
             {
-                page?.content.map( info => {
+                page?.content.map( information => {
                     return (
-                        <div className="col-sm-6 col-lg-4 col-xl-3" key={info.id}>
-                            <h1>{info.createdDate}</h1>
+                        <div className="card" key={information.id}>
+                            <h4 className="card-title">Informações Corporais em {information.createdDate}</h4>
+                            <h4 className="card-text">Altura: {information.height}</h4>
+                            <h4 className="card-text">Peso: {information.weight}</h4>
+                            <h4 className="card-text">Idade: {information.age}</h4>
+                            <h4 className="card-text">Grau de Atividade: {information.activityStatus}</h4>
+                            <h4 className="card-text">Taxa metabólica: {information.basalMetabolicRate}</h4>
                         </div>
                     );
                 })}

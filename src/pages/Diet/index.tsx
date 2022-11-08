@@ -1,23 +1,21 @@
 import { AuthContext } from "AuthContext";
 import { AxiosRequestConfig } from "axios";
+import DietCard from "components/DietCard";
 import { useContext, useEffect, useState } from "react";
-import { Information } from "types/information";
+import { Diet } from "types/diet";
 import { SpringPage } from "types/vendor/spring";
 import { requestBackend } from "util/Requests";
 
-const Diet = () => {
+const DietInfo = () => {
 
     const { authContextData } = useContext(AuthContext);
-    const [page, setPage] = useState<SpringPage<Information>>();
+    const [page, setPage] = useState<SpringPage<Diet>>();
 
     useEffect(() => {
         const params : AxiosRequestConfig = {
             method: "GET",
-            url: `/information`,
-            params: {
-                page: 0,
-                size: 12
-            }
+            url: `/diet/`,
+            withCredentials: true
         };
 
         requestBackend(params)
@@ -32,12 +30,10 @@ const Diet = () => {
             {authContextData.authenticated ? 
             <>
             {
-                page?.content.map( info => {
+                page?.content.map( diet => {
                     return (
-                        <div className="col-sm-6 col-lg-4 col-xl-3" key={info.id}>
-                            <h1>{info.createdDate}</h1>
-                        </div>
-                    );
+                        <DietCard diet={diet}></DietCard>
+                    )
                 })}
             </> 
             : <><h1>É necessário estar logado para verificar a dieta.</h1></>}
@@ -45,4 +41,4 @@ const Diet = () => {
     );
 }
 
-export default Diet;
+export default DietInfo;

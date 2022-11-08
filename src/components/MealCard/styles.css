@@ -1,0 +1,10 @@
+.food-card {
+    display: flex;
+    padding: 7px;
+    margin: 7px;
+}
+
+.meal-card {
+    padding: 20px;
+    margin: 20px;
+}
