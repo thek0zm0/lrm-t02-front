@@ -14,7 +14,7 @@ const MealCard = ( { meal } : Props ) => {
                 <h4>{meal.name}</h4>
                 <h4>Horário: {meal.timeHour}</h4>
             </div>
-            <div className='food-card'>
+            <div className='food-card-meal'>
                 {meal.foods?.map( food => {
                     return (
                         <FoodSmallCard food={food}></FoodSmallCard>
